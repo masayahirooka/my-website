@@ -1,0 +1,230 @@
+/* 基本リセット */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+body {
+  font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0b3a36; background: #f7fbfb;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* コンテナ共通 */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* カラーパレット */
+:root{
+  --mint-600: #0b7a6d;
+  --mint-400: #2aa79b;
+  --mint-200: #e6f7f4;
+  --accent: #ff7a59;
+  --text: #123;
+}
+
+/* 共通見出し */
+h1, h2, h3 { color: var(--mint-600); }
+h1 { font-size: 2.1rem; margin-bottom: 8px; }
+h2 { font-size: 1.6rem; margin-bottom: 8px; }
+h3 { font-size: 1.05rem; margin-bottom: 8px; }
+
+/* ファーストビュー */
+.fv {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #f8fffd 0%, #eef9f7 100%);
+  padding: 36px 0;
+}
+.fv-inner { display:flex; gap:28px; align-items:center; width:100%; }
+.fv-text { flex:1 1 560px; }
+.topline { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+.clinic-name { font-weight:800; color:var(--mint-600); font-size:1rem; }
+.badge { background:#fff; color:var(--mint-600); padding:6px 10px; border-radius:20px; font-weight:700; box-shadow: 0 6px 18px rgba(11,122,109,0.06); }
+.lead { color:#334b4a; font-size:1.05rem; margin-bottom:18px; }
+.fv-note { color:#5b6b69; font-size:0.92rem; margin-top:14px; }
+
+/* CTA */
+.fv-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+.btn { display:inline-block; text-decoration:none; padding:12px 18px; border-radius:10px; font-weight:800; transition: transform .12s ease, box-shadow .12s ease; }
+.btn.primary { background:var(--accent); color:#fff; box-shadow: 0 10px 28px rgba(255,122,89,0.16); }
+.btn.line { background:var(--mint-400); color:#fff; box-shadow: 0 10px 28px rgba(42,167,155,0.12); }
+.btn.small { padding:8px 12px; font-size:0.95rem; }
+
+/* ビジュアル */
+.fv-visual { flex:0 0 420px; display:flex; justify-content:center; }
+.hero-illustration { width:360px; height:260px; border-radius:16px; background: linear-gradient(135deg,#ffffff 0%, #e9fbf8 40%, #e0f7f4 100%); box-shadow: 0 12px 36px rgba(6,30,27,0.06); position:relative; overflow:hidden; }
+.hero-illustration::before { content:""; position:absolute; width:220px; height:220px; background: radial-gradient(circle at 30% 30%, rgba(11,122,109,0.08), transparent 40%); top:-30px; right:-40px; transform: rotate(15deg); }
+.hero-illustration::after { content:""; position:absolute; width:140px; height:140px; background: radial-gradient(circle at 70% 70%, rgba(255,122,89,0.06), transparent 40%); bottom:-20px; left:-30px; }
+
+/* 選ばれる理由 */
+.reasons { padding:48px 0; background: linear-gradient(180deg, #ffffff 0%, #f6fffb 100%); }
+.reasons .sub { color:#556b69; margin-bottom:22px; text-align:center; }
+.reason-list { display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; list-style:none; padding:0; margin:0; }
+.reason-item { background: #fff; border-radius:12px; padding:18px; display:flex; gap:12px; align-items:flex-start; box-shadow: 0 8px 24px rgba(6,30,27,0.04); }
+.reason-item .icon { width:56px; height:56px; display:flex; align-items:center; justify-content:center; border-radius:10px; background: linear-gradient(180deg, rgba(11,122,109,0.06), rgba(42,167,155,0.03)); flex-shrink:0; }
+.reason-item h3 { font-size:1rem; color:var(--mint-600); margin-bottom:6px; }
+.reason-item p { color:#4a5b5a; font-size:0.95rem; margin:0; }
+
+/* こんなお悩み */
+.symptoms { padding: 40px 0; background: linear-gradient(180deg,#f6fffb 0%, #ffffff 100%); }
+.symptoms .sub { color:#556b69; margin-bottom:16px; text-align:center; }
+.symptom-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 24px; padding: 0; margin: 0 0 18px 0; }
+.symptom-list li { display:flex; align-items:flex-start; gap:10px; color:#3b4f4d; font-size:0.98rem; }
+.symptom-list .icon { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; color:var(--mint-600); font-weight:700; }
+.symptoms-cta { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+
+/* 院長あいさつ */
+.director {
+  padding: 48px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f6fffb 100%);
+}
+.director h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.director-flex {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.director-photo {
+  flex: 0 0 240px;
+}
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(135deg, #e0f7f4, #f1fbfa);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2b6b61;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(6,30,27,0.06);
+}
+.director-text {
+  flex: 1 1 0;
+  color: #234;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.director-text p {
+  margin-bottom: 1em;
+}
+@media (max-width: 720px) {
+  .director-flex {
+    flex-direction: column;
+  }
+  .director-photo {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+
+/* メニュー一覧カード化 */
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  list-style: none;
+  margin-top: 28px;
+  padding: 0;
+}
+.menu-item { /* li の余白調整 */
+  margin: 0;
+}
+.menu-card {
+  display: flex;
+  gap: 16px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  align-items: flex-start;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.08);
+}
+.menu-thumb {
+  flex: 0 0 120px;
+  height: 84px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f3f7f6;
+}
+.menu-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.menu-content h3 {
+  font-size: 1.05rem;
+  color: var(--mint-600);
+  margin: 0 0 8px 0;
+}
+.menu-content p {
+  margin: 0;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* スマホ調整 */
+@media (max-width: 720px) {
+  .menu-card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+  }
+  .menu-thumb {
+    width: 100%;
+    height: 160px;
+    flex: none;
+  }
+}
+
+
+/* アクセス */
+.access { padding:40px 0; background: linear-gradient(180deg,#f6fffb 0%, #f1fffb 100%); }
+.access-grid { display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:start; }
+.access-card { background:#fff; padding:18px; border-radius:12px; box-shadow: 0 8px 24px rgba(6,30,27,0.04); }
+.map-placeholder { height:160px; border-radius:8px; background: linear-gradient(180deg,#eafaf6 0%, #dff6f1 100%); display:flex; align-items:center; justify-content:center; color:#2b6b61; margin-top:12px; }
+.map-wrapper {
+  width: 100%;
+  max-width: 800px; /* 必要に応じて調整 */
+  margin: 0 auto;
+  aspect-ratio: 16 / 9; /* 横長の比率。4/3 や 1/1 に変更可 */
+  overflow: hidden;
+}
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* フッター */
+.site-footer { padding:18px 0; text-align:center; color:#6b7a79; font-size:0.95rem; background:#f7fbfb; }
+
+/* レスポンシブ */
+@media (max-width: 980px) {
+  .fv-inner { flex-direction:column-reverse; gap:18px; padding: 0 20px; }
+  .fv-visual { width:100%; }
+  .hero-illustration { width:100%; height:200px; border-radius:12px; }
+  .reason-list { grid-template-columns: repeat(2, 1fr); }
+  .menu-list { grid-template-columns: 1fr; }
+  .access-grid { grid-template-columns: 1fr; }
+  .btn { width:100%; text-align:center; }
+  .fv-ctas { flex-direction:column; gap:12px; }
+}
+@media (max-width: 560px) {
+  .reason-list { grid-template-columns: 1fr; }
+  .symptom-list { grid-template-columns: 1fr; }
+  h1 { font-size:1.4rem; }
+  .clinic-name { font-size:0.95rem; }
+}
