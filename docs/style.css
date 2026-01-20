@@ -228,3 +228,95 @@ h3 { font-size: 1.05rem; margin-bottom: 8px; }
   h1 { font-size:1.4rem; }
   .clinic-name { font-size:0.95rem; }
 }
+
+/* Reviews（既存テーマに合わせた追加） */
+.reviews { max-width: 900px; margin: 32px auto; padding: 0 20px; }
+.reviews h2 { color: var(--mint-600); font-size: 1.6rem; margin-bottom: 14px; }
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.review-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(6,30,27,0.04);
+  border: 1px solid rgba(11,122,109,0.04);
+  transition: transform .12s ease, box-shadow .12s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(6,30,27,0.06);
+}
+
+.review-card header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.reviewer {
+  font-weight: 800;
+  color: var(--mint-600);
+}
+
+.review-date { color: #6b7a79; font-size: 0.85rem; }
+
+.stars {
+  margin-left: auto;
+  color: #f5a623;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+/* 星をSVGや文字で入れる場合の補助クラス */
+.star { font-size: 0.95rem; line-height: 1; }
+
+/* 本文 */
+.review-card blockquote {
+  margin: 0;
+  color: #123;
+  font-size: 1rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  padding-left: 2px;
+  border-left: 3px solid var(--mint-200);
+  padding-left: 12px;
+}
+
+/* 出典 */
+.review-card .source {
+  font-size: 0.85rem;
+  color: #6b7a79;
+  margin-top: 6px;
+}
+
+/* スクショを併用する場合 */
+.review-screenshot {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+  box-shadow: 0 6px 18px rgba(6,30,27,0.04);
+}
+.review-screenshot img { width: 100%; height: auto; display: block; }
+
+/* レスポンシブ調整 */
+@media (max-width: 720px) {
+  .reviews { padding: 0 14px; }
+  .review-card { padding: 14px; }
+  .stars { font-size: 0.95rem; }
+}
