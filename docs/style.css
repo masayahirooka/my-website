@@ -55,6 +55,22 @@ h3 { font-size: 1.05rem; margin-bottom: 8px; }
 .hero-illustration::before { content:""; position:absolute; width:220px; height:220px; background: radial-gradient(circle at 30% 30%, rgba(11,122,109,0.08), transparent 40%); top:-30px; right:-40px; transform: rotate(15deg); }
 .hero-illustration::after { content:""; position:absolute; width:140px; height:140px; background: radial-gradient(circle at 70% 70%, rgba(255,122,89,0.06), transparent 40%); bottom:-20px; left:-30px; }
 
+@media (max-width: 768px) {
+  .fv-inner {
+    flex-direction: column !important;
+  }
+
+  .fv-text {
+    order: 1 !important;
+  }
+
+  .fv-visual {
+    order: 2 !important;
+  }
+}
+
+
+
 /* 選ばれる理由 */
 .reasons { padding:48px 0; background: linear-gradient(180deg, #ffffff 0%, #f6fffb 100%); }
 .reasons .sub { color:#556b69; margin-bottom:22px; text-align:center; }
@@ -121,6 +137,7 @@ h3 { font-size: 1.05rem; margin-bottom: 8px; }
     margin: 0 auto;
   }
 }
+
 
 
 /* メニュー一覧カード化 */
@@ -474,3 +491,50 @@ h3 { font-size: 1.05rem; margin-bottom: 8px; }
 }
 #contact-section details div{ color:#333; font-size:0.95rem; line-height:1.6; }
 #contact-section details strong{ color:#111; }
+
+/* セクション間の余白（特にメニューとFAQの間） */
+#faq {
+  margin-bottom: 72px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #dce7e5;
+  padding: 12px 0;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 24px;
+}
+
+.faq-item summary::after {
+  content: "＋";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.2rem;
+  color: var(--mint-600);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+/* アニメーション部分 */
+.faq-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.faq-item[open] .faq-content {
+  max-height: 500px; /* 十分な高さに設定（必要に応じて調整） */
+  opacity: 1;
+}
