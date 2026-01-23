@@ -196,7 +196,7 @@
   <article class="review-card">
     <header>
       <strong class="reviewer">りんご 様</strong>
-      <time datetime="2026-01-10">2026-01-10</time>
+      <time datetime="2026-01-08">2026-01-08</time>
       <span class="stars" aria-hidden="true">★★★★★</span>
     </header>
     <blockquote>
@@ -205,14 +205,14 @@
       施術前の説明や身体の状況もとても丁寧に説明してくれて分かりやすかったです。
       施術後は腰の痛みも取れて、とても楽になりました。
     </blockquote>
-    <footer class="source">出典：Google 口コミ（取得日 2026-01-20）</footer>
+    <footer class="source">出典：Google 口コミ（取得日 2026-01-08）</footer>
   </article>
 
   <!-- Review 2 -->
   <article class="review-card">
     <header>
       <strong class="reviewer">あ。 様</strong>
-      <time datetime="2025-12-05">2025-12-05</time>
+      <time datetime="2026-01-14">2026-01-14</time>
       <span class="stars" aria-hidden="true">★★★★★</span>
     </header>
     <blockquote>
@@ -229,7 +229,7 @@
       産後のケアで悩んでいる方にも
       おすすめしたいです。
     </blockquote>
-    <footer class="source">出典：Google 口コミ（取得日 2026-01-20）</footer>
+    <footer class="source">出典：Google 口コミ（取得日 2026-01-14）</footer>
   </article>
 </section>
 
@@ -320,6 +320,107 @@
     </div>
   </section>
 
+<!-- ▼ フォーム（コピーしてページ内に貼る） -->
+<section id="contact-section" style="padding:24px; background:#f9fbfd; border-radius:8px; max-width:760px; margin:0 auto;">
+  <h2 style="margin-top:0; font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;">お問い合わせ</h2>
+  <p style="color:#555; margin-top:4px;">ご予約・ご相談は下のフォームからどうぞ。必須項目を入力して送信してください。</p>
+
+  <form id="contact-form" action="https://formspree.io/f/mykekzqg" method="POST" novalidate>
+    <label style="display:block; margin-top:16px; font-weight:700;">お名前 <span style="color:#d00;">*</span></label>
+    <input type="text" name="name" required placeholder="例）山田 太郎"
+           style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;">
+
+    <label style="display:block; margin-top:12px; font-weight:700;">メールアドレス <span style="color:#d00;">*</span></label>
+    <input type="email" name="_replyto" required placeholder="例）yourname@example.com"
+           style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;">
+
+    <label style="display:block; margin-top:12px; font-weight:700;">希望日時 <span style="color:#d00;">*</span></label>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <input type="date" name="preferred_date" required
+             style="flex:1; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;">
+      <input type="time" name="preferred_time" required
+             style="flex:1; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;">
+    </div>
+    <small style="color:#666; display:block; margin-top:6px;">第2希望があれば下の詳細欄にご記入ください。</small>
+
+    <label style="display:block; margin-top:12px; font-weight:700;">相談内容（該当） <span style="color:#d00;">*</span></label>
+    <select name="inquiry_type" required
+            style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;">
+      <option value="" disabled selected>選択してください</option>
+      <option value="初めての相談">初めての相談</option>
+      <option value="骨盤ケア">骨盤ケア</option>
+      <option value="自律神経の不調">自律神経の不調</option>
+      <option value="産後ケア">産後ケア</option>
+      <option value="その他">その他</option>
+    </select>
+
+    <label style="display:block; margin-top:12px; font-weight:700;">相談内容の詳細 <span style="color:#d00;">*</span></label>
+    <textarea name="message" rows="6" required
+              style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;"
+              placeholder="症状の経過、ご希望の施術内容、来院可能な時間帯などをご記入ください。"></textarea>
+
+    <input type="hidden" name="_subject" value="美らの森整体サイトからのお問い合わせ">
+    <input type="hidden" name="_next" value="https://あなたのサイト/thanks.html">
+
+    <!-- 簡易プライバシー表示（ページ内で完結） -->
+    <details style="background:#fff; border:1px solid #eee; padding:12px; border-radius:6px; margin-top:12px;">
+      <summary style="font-weight:700; cursor:pointer;">個人情報の取り扱い（クリックで開く）</summary>
+      <div style="margin-top:8px; color:#444; line-height:1.6;">
+        <strong>収集する情報</strong>：お名前、メールアドレス、希望日時、相談内容。<br>
+        <strong>利用目的</strong>：予約確認およびご相談への対応のため。<br>
+        <strong>第三者提供</strong>：フォーム送信には外部サービス（Formspree）を利用します。<br>
+        <strong>保存期間</strong>：送信日から6か月間保管し、その後削除します。<br>
+        <strong>お問い合わせ</strong>：tyuranomori@gmail.com までご連絡ください。<br>
+        送信により上記内容に同意したものとみなします。
+      </div>
+    </details>
+
+    <!-- 同意チェック（必須） -->
+    <label style="display:flex; align-items:center; gap:8px; margin-top:12px; font-size:14px;">
+      <input type="checkbox" id="agree" name="agree" required>
+      <span>上記の個人情報の取り扱いに同意します。</span>
+    </label>
+
+    <div style="margin-top:16px;">
+      <button type="submit" id="submit-btn" style="background:#0078D4; color:#fff; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:700;">
+        送信する
+      </button>
+    </div>
+
+    <p id="form-status" style="display:none; margin-top:12px; font-weight:600;"></p>
+  </form>
+</section>
+<!-- ▲ フォームここまで -->
+
+<!-- ▼ 簡易スクリプト（ページ末尾に貼ってください） -->
+<script>
+  (function(){
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function(e){
+      if (!form.checkValidity()) {
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中...';
+      status.style.display = 'none';
+
+      // フォームは通常の POST で送信されるため、ここでは簡易UIのみ制御
+      setTimeout(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送信する';
+        status.style.display = 'block';
+        status.style.color = '#0078D4';
+        status.textContent = '送信処理が完了しました。Gmailの受信トレイと迷惑メールを確認してください。';
+      }, 1200);
+    });
+  })();
+</script>
+<!-- ▲ スクリプトここまで -->
+
+  
   <!-- 診療時間とアクセス -->
   <section class="access" aria-labelledby="access-title">
     <div class="container">

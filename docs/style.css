@@ -320,3 +320,123 @@ h3 { font-size: 1.05rem; margin-bottom: 8px; }
   .review-card { padding: 14px; }
   .stars { font-size: 0.95rem; }
 }
+:root{
+  --primary:#0078D4; /* メインカラー */
+  --accent:#005a9e;  /* ホバー色 */
+  --bg:#f9fbfd;
+  --card:#ffffff;
+  --muted:#666666;
+  --border:#e6e9ec;
+  --radius:8px;
+  --font-sans: "Hiragino Kaku Gothic ProN", "Meiryo", "Noto Sans JP", sans-serif;
+  --max-width:760px;
+}
+
+/* フォーム全体 */
+#contact-section{
+  background:var(--bg);
+  padding:28px;
+  border-radius:var(--radius);
+  max-width:var(--max-width);
+  margin:24px auto;
+  box-shadow:0 6px 18px rgba(12,24,40,0.06);
+  font-family:var(--font-sans);
+  color:#222;
+}
+
+/* 見出しと説明 */
+#contact-section h2{
+  margin:0 0 6px 0;
+  font-size:1.6rem;
+  letter-spacing:0.2px;
+}
+#contact-section p{ color:var(--muted); margin:0 0 14px 0; }
+
+/* ラベルと入力のレイアウト */
+#contact-form label{ display:block; margin-bottom:8px; font-weight:700; font-size:0.95rem; }
+.input-row{ display:flex; gap:10px; }
+.input-row input[type="date"],
+.input-row input[type="time"]{ flex:1; }
+
+/* 共通入力スタイル */
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="date"],
+#contact-form input[type="time"],
+#contact-form select,
+#contact-form textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--card);
+  box-sizing:border-box;
+  font-size:0.98rem;
+  transition:box-shadow .18s ease, border-color .12s ease, transform .06s ease;
+  line-height:1.4;
+  color:#111;
+}
+
+/* プレースホルダの色 */
+#contact-form ::placeholder{ color:#9aa3ad; }
+
+/* フォーカス時 */
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus{
+  outline:none;
+  border-color:var(--primary);
+  box-shadow:0 6px 18px rgba(0,120,212,0.08);
+  transform:translateY(-1px);
+}
+
+/* 必須マーク */
+.required-mark{ color:#d00; margin-left:6px; font-weight:700; }
+
+/* セレクトの矢印調整（見た目） */
+#contact-form select{ appearance:none; background-image:linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position:calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px); background-size:6px 6px,6px 6px; background-repeat:no-repeat; padding-right:40px; }
+
+/* details のスタイル */
+#contact-section details{ background:var(--card); border:1px solid var(--border); padding:12px; border-radius:8px; margin-top:12px; }
+#contact-section summary{ font-weight:700; cursor:pointer; }
+
+/* 同意チェック */
+#contact-form label[for="agree"]{ display:flex; align-items:center; gap:8px; font-size:0.95rem; }
+
+/* 送信ボタン */
+#submit-btn{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  padding:12px 20px;
+  border:none;
+  border-radius:12px;
+  font-weight:800;
+  font-size:1rem;
+  cursor:pointer;
+  transition:background .12s ease, transform .08s ease;
+  width:100%;
+  box-shadow:0 6px 18px rgba(0,120,212,0.12);
+}
+#submit-btn:hover{ background:var(--accent); transform:translateY(-2px); }
+#submit-btn:disabled{ opacity:0.6; cursor:not-allowed; transform:none; box-shadow:none; }
+
+/* ステータスメッセージ */
+#form-status{ display:none; margin-top:12px; font-weight:700; }
+#form-status.success{ color:var(--primary); display:block; }
+#form-status.error{ color:#d00; display:block; }
+
+/* レスポンシブ調整 */
+@media (max-width:640px){
+  #contact-section{ padding:18px; margin:16px; }
+  .input-row{ flex-direction:column; }
+  #submit-btn{ padding:14px; border-radius:10px; }
+}
+
+/* 小さなアクセントアニメーション（任意） */
+@keyframes pop {
+  0%{ transform:scale(.98); opacity:.9; }
+  60%{ transform:scale(1.02); opacity:1; }
+  100%{ transform:scale(1); opacity:1; }
+}
+#contact-section{ animation:pop .28s ease both; }
