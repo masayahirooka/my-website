@@ -468,5 +468,113 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+(function(){
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+
+  function showError(el, msg){
+    let wrap = el.parentElement;
+    let err = wrap.querySelector('.field-error');
+    if(!err){
+      err = document.createElement('div');
+      err.className = 'field-error';
+      err.style.color = '#d00';
+      err.style.fontSize = '0.9rem';
+      err.style.marginTop = '6px';
+      wrap.appendChild(err);
+    }
+    err.textContent = msg;
+  }
+  function clearError(el){
+    let wrap = el.parentElement;
+    let err = wrap.querySelector('.field-error');
+    if(err) err.remove();
+  }
+
+  function isPastDate(dateStr, timeStr){
+    if(!dateStr) return false;
+    const [y,m,d] = dateStr.split('-').map(Number);
+    let target = new Date(y, m-1, d);
+    if(timeStr){
+      const [hh,mm] = timeStr.split(':').map(Number);
+      target.setHours(hh, mm, 0, 0);
+    } else {
+      target.setHours(0,0,0,0);
+    }
+    const now = new Date();
+    return target < now;
+  }
+
+  if(!form) return;
+
+  form.addEventListener('submit', function(e){
+    const name = form.querySelector('input[name="name"]');
+    const email = form.querySelector('input[name="_replyto"]');
+    const date = form.querySelector('input[name="preferred_date"]');
+    const time = form.querySelector('input[name="preferred_time"]');
+    const inquiry = form.querySelector('select[name="inquiry_type"]');
+    const message = form.querySelector('textarea[name="message"]');
+    const agree = form.querySelector('input[name="agree"]');
+
+    [name,email,date,time,inquiry,message,agree].forEach(el => { if(el) clearError(el); });
+
+    let valid = true;
+
+    if(!name.value.trim()){ showError(name, 'お名前を入力してください'); valid = false; }
+    if(!email.value.trim()){ showError(email, 'メールアドレスを入力してください'); valid = false; }
+    if(!date.value){ showError(date, '希望日を選択してください'); valid = false; }
+    if(!time.value){ showError(time, '希望時間を選択してください'); valid = false; }
+    if(!inquiry.value){ showError(inquiry, '相談内容を選択してください'); valid = false; }
+    if(!message.value.trim()){ showError(message, '相談内容の詳細を入力してください'); valid = false; }
+    if(!agree.checked){ showError(agree, '個人情報の取り扱いに同意してください'); valid = false; }
+
+    if(email.value.trim()){
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!re.test(email.value.trim())){
+        showError(email, '有効なメールアドレスを入力してください');
+        valid = false;
+      }
+    }
+
+    if(date.value && time.value){
+      if(isPastDate(date.value, time.value)){
+        showError(date, '過去の日時は選べません');
+        showError(time, '過去の日時は選べません');
+        valid = false;
+      }
+    } else if(date.value && !time.value){
+      if(isPastDate(date.value, null)){
+        showError(date, '過去の日付は選べません');
+        valid = false;
+      }
+    }
+
+    if(!valid){
+      e.preventDefault();
+      const firstErr = form.querySelector('.field-error');
+      if(firstErr) {
+        const prev = firstErr.previousElementSibling;
+        if(prev && typeof prev.focus === 'function') prev.focus();
+      }
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+
+    setTimeout(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = '送信する';
+    }, 3000);
+  });
+
+  form.addEventListener('input', function(e){
+    const target = e.target;
+    if(target) clearError(target);
+  });
+})();
+</script>
+
 </body>
 </html>
